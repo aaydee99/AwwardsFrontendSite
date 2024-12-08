@@ -1,13 +1,13 @@
 import gsap from "gsap";
-import { useRef } from "react";
+import { useRef, MouseEvent } from "react";
 
 import Button from "./Button";
 import AnimatedTitle from "./AnimatedTitle";
 
-const FloatingImage = () => {
-  const frameRef = useRef(null);
+const FloatingImage: React.FC = () => {
+  const frameRef = useRef<HTMLImageElement | null>(null);
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: MouseEvent<HTMLImageElement>) => {
     const { clientX, clientY } = e;
     const element = frameRef.current;
 
@@ -46,8 +46,8 @@ const FloatingImage = () => {
   };
 
   return (
-    <div id="story" className="min-h-dvh w-screen bg-black text-blue-50">
-      <div className="flex size-full flex-col items-center py-10 pb-24">
+    <div id="story" className="w-screen bg-black min-h-dvh text-blue-50">
+      <div className="flex flex-col items-center py-10 pb-24 size-full">
         <p className="font-general text-sm uppercase md:text-[10px]">
           the multiversal ip world
         </p>
@@ -76,7 +76,7 @@ const FloatingImage = () => {
 
             {/* for the rounded corner */}
             <svg
-              className="invisible absolute size-0"
+              className="absolute invisible size-0"
               xmlns="http://www.w3.org/2000/svg"
             >
               <defs>
@@ -103,9 +103,9 @@ const FloatingImage = () => {
           </div>
         </div>
 
-        <div className="-mt-80 flex w-full justify-center md:-mt-64 md:me-44 md:justify-end">
-          <div className="flex h-full w-fit flex-col items-center md:items-start">
-            <p className="mt-3 max-w-sm text-center font-circular-web text-violet-50 md:text-start">
+        <div className="flex justify-center w-full -mt-80 md:-mt-64 md:me-44 md:justify-end">
+          <div className="flex flex-col items-center h-full w-fit md:items-start">
+            <p className="max-w-sm mt-3 text-center font-circular-web text-violet-50 md:text-start">
               Where realms converge, lies Zentry and the boundless pillar.
               Discover its secrets and shape your fate amidst infinite
               opportunities.

@@ -31,7 +31,6 @@ const Hero: React.FC = () => {
 
   const handleMiniVdClick = () => {
     setHasClicked(true);
-
     setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1);
   };
 
@@ -46,7 +45,12 @@ const Hero: React.FC = () => {
           height: "100%",
           duration: 1,
           ease: "power1.inOut",
-          onStart: () => nextVdRef.current?.play(),
+          onStart: () => {
+            // Ignore the Promise returned by play() to avoid type errors
+            nextVdRef.current?.play().catch((error) => {
+              console.error("Error playing video:", error);
+            });
+          },
         });
         gsap.from("#current-video", {
           transformOrigin: "center center",
