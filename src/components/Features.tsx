@@ -2,10 +2,6 @@ import { TiLocationArrow } from "react-icons/ti";
 import BentoTilt from "./BentoTilt";
 import BentoCard from "./BentoCard";
 
-
-
-
-
 const Features = () => (
   <section className="bg-black pb-52">
     <div className="container px-3 mx-auto md:px-10">
