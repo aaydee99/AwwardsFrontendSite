@@ -84,7 +84,7 @@ const NavBar: React.FC = () => {
           {/* Navigation Links and Audio Button */}
           <div className="flex items-center h-full">
             <div className="hidden md:block">
-              {navItems.map((item, index) => (
+              {navItems.map((item: string, index: number) => (
                 <a
                   key={index}
                   href={`#${item.toLowerCase()}`}
